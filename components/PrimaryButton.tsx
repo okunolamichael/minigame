@@ -1,20 +1,27 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 
+
+
+// Define the props interface for the PrimaryButton component
+// It expects children (text to display) and an onPress function
 interface props {
   children: number | string;
+  onPress: () => void;
 }
 
-const PrimaryButton = ({ children }: props) => {
-  const pressHandler = () => {
-    console.log("Button Pressed!");
-  };
+
+
+// PrimaryButton component that renders a button with a shadow effect
+// It accepts children (text to display) and an onPress function as props
+const PrimaryButton = ({ children, onPress }: props) => {
+  
 
   return (
     <View>
       <View style={styles.container}>
         <Pressable
-          onPress={pressHandler}
+          onPress={onPress}
           style={({ pressed }) =>
             pressed
               ? [styles.buttonContainer, styles.pressed]
