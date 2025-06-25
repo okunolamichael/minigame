@@ -4,8 +4,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PrimaryButton from "@/components/PrimaryButton";
 
 
+interface StartGameScreenProps {
+  onPickedNumber: number; // Function to handle the picked number
+}
 
-const StartGameScreen = () => {
+const StartGameScreen = ({onPickedNumber}: StartGameScreenProps) => {
   
   // State to hold the input value, initially empty
   // binded to the TextInput
@@ -44,7 +47,8 @@ const StartGameScreen = () => {
       return; // If the input is not a valid number, do nothing. it make sure this function does countinue its execution if it made it into this if statement
     }
 
-    console.log("Valid number entered:", chosenNumber); // Log the valid number to the console
+
+    onPickedNumber(chosenNumber); // Call the onPickedNumber function passed as a prop with the valid number
   };
 
 
