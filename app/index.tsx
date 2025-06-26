@@ -18,14 +18,14 @@ export default function Index() {
   let screen = <StartGameScreen onPickedNumber={pickedNumberHandler}/>;
 
   if (userNumber) {
-    screen = <GameScreen />;
+    screen = <GameScreen userNumber={userNumber}/>;
   }
 
 
   return (
     <View  style={styles.container}>
     <ImageBackground source={images.snow} resizeMode="cover" style={styles.container}>
-      {screen}
+      <SafeAreaView  style={styles.container}>{screen}</SafeAreaView>
     </ImageBackground>
     </View>
   );

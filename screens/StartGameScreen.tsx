@@ -1,11 +1,12 @@
 import { View, Text, TextInput, StyleSheet, Alert } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButton from "@/components/PrimaryButton";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import colors from "@/constants/colors";
 
 
 interface StartGameScreenProps {
-  onPickedNumber: number; // Function to handle the picked number
+  onPickedNumber: (pickedNumber: number) => void;
 }
 
 const StartGameScreen = ({onPickedNumber}: StartGameScreenProps) => {
@@ -83,10 +84,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 100,
     padding: 20,
-    backgroundColor: "#9cc",
+    backgroundColor: colors.primary300,
     marginHorizontal: 24,
     borderRadius: 8,
-    shadowColor: "#000",
+    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -99,11 +100,11 @@ const styles = StyleSheet.create({
     height: 40,
     width: 50,
     fontSize: 32,
-    borderButtomColor: "#000",
+    borderButtomColor: colors.black,
     borderBottomWidth: 2,
     marginVertical: 24,
     fontWeight: "bold",
-    color: "#000",
+    color: colors.black,
     textAlign: "center",
   },
   buttonContainer: {
